@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html><body>
+<html>
 
-<div ng-app="">
- 
-<p>Input something in the input box:</p>
-<p>Name: <input type="text" ng-model="name"></p>
-<p ng-bind="name"></p>
+<body ng-app="myApp" ng-controller="reasonsCtrl">
 
-</div>
+    <div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <h1>Top reasons to work for BHCC</h1>
+
+    <!-- https://stackoverflow.com/questions/16296670/angular-ng-repeat-error-duplicates-in-a-repeater-are-not-allowed -->
+    <!-- https://stackoverflow.com/questions/14514461/how-do-i-bind-to-list-of-checkbox-values-with-angularjs -->
+        <label ng-repeat="reason in reasons track by $index">
+            <input
+              type="checkbox"
+              value="{{reason}}"
+              ng-click="toggleSelection(reason)"
+            >  {{$index+1}}. {{reason}} <br>
+        </label>
+        <input ng-model='reasonToAdd' type='text' value='' />
+        <button ng-click="addReason()">Add To Reason</button>
+        <button ng-click="deleteReasons()">Delete To Reasons</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>
