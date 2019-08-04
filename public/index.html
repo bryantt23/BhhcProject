@@ -13,13 +13,15 @@
             <input
               type="checkbox"
               value="{{reason}}"
-              ng-click="toggleSelection(reason)"
+              ng-click="toggleSelection($index)"
             >  {{$index+1}}. {{reason}} <br>
         </label>
         <input ng-model='reasonToAdd' type='text' value='' />
         <button ng-click="addReason()">Add To Reason</button>
         <button ng-click="deleteReasons()">Delete To Reasons</button>
     </div>
+
+{{reasonsToDelete}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="./script.js"></script>
